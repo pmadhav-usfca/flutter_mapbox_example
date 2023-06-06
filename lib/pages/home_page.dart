@@ -4,6 +4,7 @@ import 'package:flutter_mapbox_blog/constants/app_constants.dart';
 import 'package:flutter_mapbox_blog/models/map_marker_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:flutter_mapbox_blog/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,6 +32,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 33, 32, 32),
         title: const Text('Flutter MapBox'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Login(title: 'Help Me Park!')),
+              );
+            },
+          ),
+        ],
       ),
       body: Stack(
         children: [
